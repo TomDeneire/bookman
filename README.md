@@ -1,4 +1,4 @@
-## Pacman
+## Pacman HTML5
 
 An old classic, written in HTML5. Visit [Pacman HTML5](http://pacman.thisismichaelorourke.com) to play it live.
 
