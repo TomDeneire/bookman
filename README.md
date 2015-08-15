@@ -1,41 +1,41 @@
 ## Pacman
 
-An old classic, written in HTML5. Visit [pacman.thisismichaelorourke.com](http://pacman.thisismichaelorourke.com) to play it live.
+An old classic, written in HTML5. Visit [Pacman HTML5](http://pacman.thisismichaelorourke.com) to play it live.
 
 ## Quick Install
 
-1. Clone from GitHub and go into the directory.
+Clone from GitHub and go into the directory.
 
         $ git clone -b gh-pages https://github.com/caleorourke/pacman.git
         $ cd pacman
 
 
-2. Install Bundler.
+Install Bundler.
 
         $ [sudo] gem install bundler
 
 
-3. Install runtime dependencies.
+Install runtime dependencies.
 
         $ [sudo] bundle install
 
 
 ## Roll Your Own
 
-1. Make a fresh clone and go into the directory.
+Make a fresh clone and go into the directory.
 
         $ git clone https://github.com/username/mrpacman.git
         $ cd mrpacman
 
-2. Create a new `gh-pages` branch.
+Create a new `gh-pages` branch.
 
         $ git checkout --orphan gh-pages
 
-3. Copy the contents from `/pacman` to `/mrpacman`.
+Copy the contents from `/pacman` to `/mrpacman`.
 
         $ [sudo] cp -r ~/pacman/* ~/mrpacman
 
-4. Push your site to GitHub.
+Push your site to GitHub.
 
         $ git add .
         $ git commit -a -m "first commit"
