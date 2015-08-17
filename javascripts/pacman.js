@@ -8,47 +8,6 @@ var inky, blinky, clyde, pinky;
 
 var mapConfig = 'data/map.json';
 
-
-/* AJAX stuff */
-/*
-    function getHighscore() {
-        setTimeout(ajax_get,30);
-    }
-    function ajax_get() {
-    date = new Date().getTime();
-        $.ajax({
-           datatype: "json",
-           type: "GET",
-           url: "data/db-handler.php",
-           data: {
-             timestamp: date,
-             action: 'get'
-             },
-           success: function(msg){
-             $("#highscore-list").text("");
-             for (var i = 0; i < msg.length; i++) {
-                $("#highscore-list").append("<li>"+msg[i]['name']+"<span id='score'>"+msg[i]['score']+"</span></li>");
-             }
-           }
-        });
-    }
-    function ajax_add(n, s) {
-
-        $.ajax({
-           type: "POST",
-           url: "data/db-handler.php",
-           data: {
-             action: 'add',
-             name: n,
-             score: s
-             }
-        });
-    }
-    function addHighscore() {
-            ajax_add($("input[type=text]").val(),game.score.score);
-            $("#highscore-form").html('<span class="button" onClick="game.showContent(\'highscore-content\');getHighscore();">view highscore</span>');
-    } */
-
 function buildWall(context, gridX, gridY, width, height) {
     console.log("BuildWall");
     width = width * 2 - 1;
@@ -59,7 +18,6 @@ function buildWall(context, gridX, gridY, width, height) {
 function between(x, min, max) {
     return x >= min && x <= max;
 }
-
 
 // Logger
 var logger = function () {
@@ -111,6 +69,7 @@ function Game() {
         blinky.dazzle();
         clyde.dazzle();
     }
+
     this.endGhostFrightened = function () {
         console.log("ghost frigthened end");
         this.ghostFrightened = false;
@@ -119,7 +78,6 @@ function Game() {
         blinky.undazzle();
         clyde.undazzle();
     };
-
 
     this.checkGhostMode = function () {
         if (this.ghostFrightened) {
@@ -156,6 +114,7 @@ function Game() {
         if (y > maxY) y = y - maxY;
         return this.map.posY[y].posX[x].type;
     }
+
     this.setMapContent = function (x, y, val) {
         this.map.posY[y].posX[x].type = val;
     }
@@ -164,6 +123,7 @@ function Game() {
         this.soundfx == 0 ? this.soundfx = 1 : this.soundfx = 0;
         $('#mute').toggle();
     }
+
     this.reset = function () {}
     this.newGame = function () {
         /*
@@ -177,24 +137,27 @@ function Game() {
         this.init(0);
         this.pauseResume();
     }
+
     this.nextLevel = function () {
         this.level++;
         console.log("Level " + game.level);
         game.showMessage("Level " + game.level, "Level up! Click to continue!");
         this.init(1);
     }
+
     this.drawHearts = function (count) {
         var html = "";
         for (i = 0; i < count; i++) {
             html += " <img src='images/heart.png'>";
         }
         $(".lives").html("Lives: " + html);
-
     }
+
     this.showContent = function (id) {
         $('.content').hide();
         $('#' + id).show();
     }
+
     this.showMessage = function (title, text) {
         this.pause = true;
         $('#canvas-overlay-container').fadeIn(200);
@@ -202,10 +165,12 @@ function Game() {
         $('#canvas-overlay-content #title').text(title);
         $('#canvas-overlay-content #text').html(text);
     }
+
     this.closeMessage = function () {
         $('#canvas-overlay-container').fadeOut(200);
         $('.controls').slideToggle(200);
     }
+
     this.pauseResume = function () {
         if (!this.running) {
             this.pause = false;
@@ -219,8 +184,8 @@ function Game() {
             this.showMessage("Pause", "Click to Resume");
         }
     }
-    this.init = function (state) {
 
+    this.init = function (state) {
         console.log("init game " + state);
 
         // get Level Map
@@ -300,8 +265,6 @@ function Game() {
 
 game = new Game();
 
-
-
 function Score() {
     this.score = 0;
     this.set = function (i) {
@@ -316,8 +279,6 @@ function Score() {
 
 }
 
-
-
 // used to play sounds during the game
 var Sound = new Object();
 Sound.play = function (sound) {
@@ -326,7 +287,6 @@ Sound.play = function (sound) {
         (audio != null) ? audio.play() : console.log(sound + " not found");
     }
 }
-
 
 // Direction object in Constructor notation
 function Direction(name, angle1, angle2, dirX, dirY) {
@@ -345,12 +305,6 @@ var up = new Direction("up", 1.75, 1.25, 0, -1); // UP
 var left = new Direction("left", 1.25, 0.75, -1, 0); // LEFT
 var down = new Direction("down", 0.75, 0.25, 0, 1); // DOWN
 var right = new Direction("right", 0.25, 1.75, 1, 0); //
-/*var directions = [{},{},{},{}];
-    directions[0] = up;
-    directions[1] = down;
-    directions[2] = right;
-    directions[3] = left;*/
-
 
 // DirectionWatcher
 function directionWatcher() {
@@ -363,8 +317,6 @@ function directionWatcher() {
         return this.dir;
     }
 }
-
-//var directionWatcher = new directionWatcher();
 
 // Ghost object in Constructor notation
 function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
@@ -422,9 +374,11 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
             }
         } else context.drawImage(this.image, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
     }
+
     this.getCenterX = function () {
         return this.posX + this.radius;
     }
+
     this.getCenterY = function () {
         return this.posY + this.radius;
     }
@@ -442,6 +396,7 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
         this.dead = true;
         this.changeSpeed(5);
     }
+
     this.changeSpeed = function (s) {
         // adjust gridPosition to new speed
         this.posX = Math.round(this.posX / s) * s;
@@ -450,7 +405,6 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
     }
 
     this.move = function () {
-
         this.checkDirectionChange();
         this.checkCollision();
 
@@ -473,6 +427,7 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
                 if ((this.getGridPosX() == 8) || this.getGridPosX() == 9) this.setDirection(up);
                 if ((this.getGridPosX() == 10)) this.setDirection(left);
             }
+
             if ((this.getGridPosY() == 4) && ((this.getGridPosX() == 8) || (this.getGridPosX() == 9)) && this.inGrid()) {
                 console.log("ghosthouse -> false");
                 this.ghostHouse = false;
@@ -569,7 +524,6 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
             }
         }
 
-
         var oppDir = this.getOppositeDirection(); // ghosts are not allowed to change direction 180°
 
         var dirs = [{}, {}, {}, {}];
@@ -616,6 +570,7 @@ function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
         this.directionWatcher.set(r);
         return r;
     }
+
     this.setRandomDirection = function () {
         var dir = Math.floor((Math.random() * 10) + 1) % 5;
 
@@ -670,17 +625,18 @@ function Figure() {
 
     }
 
-
     this.inGrid = function () {
         if ((this.posX % (2 * this.radius) === 0) && (this.posY % (2 * this.radius) === 0)) return true;
         return false;
     }
+
     this.getOppositeDirection = function () {
         if (this.direction.equals(up)) return down;
         else if (this.direction.equals(down)) return up;
         else if (this.direction.equals(right)) return left;
         else if (this.direction.equals(left)) return right;
     }
+
     this.move = function () {
 
         if (!this.stop) {
@@ -694,9 +650,11 @@ function Figure() {
             if (this.posY <= 0 - this.radius) this.posY = game.height - this.speed - this.radius;
         }
     }
+
     this.stop = function () {
         this.stop = true;
     }
+
     this.start = function () {
         this.stop = false;
     }
@@ -704,9 +662,11 @@ function Figure() {
     this.getGridPosX = function () {
         return (this.posX - (this.posX % 30)) / 30;
     }
+
     this.getGridPosY = function () {
         return (this.posY - (this.posY % 30)) / 30;
     }
+
     this.setDirection = function (dir) {
         this.dirX = dir.dirX;
         this.dirY = dir.dirY;
@@ -714,6 +674,7 @@ function Figure() {
         this.angle2 = dir.angle2;
         this.direction = dir;
     }
+
     this.setPosition = function (x, y) {
         this.posX = x;
         this.posY = y;
@@ -737,24 +698,25 @@ function pacman() {
     this.freeze = function () {
         this.frozen = true;
     }
+
     this.unfreeze = function () {
         this.frozen = false;
     }
+
     this.getCenterX = function () {
         return this.posX + this.radius;
     }
+
     this.getCenterY = function () {
         return this.posY + this.radius;
     }
+
     this.directionWatcher = new directionWatcher();
-
     this.direction = right;
-
     this.beastMode = false;
     this.beastModeTimer = 0;
 
     this.checkCollisions = function () {
-
         if ((this.stuckX == 0) && (this.stuckY == 0) && this.frozen == false) {
 
             // Get the Grid Position of Pac
@@ -773,7 +735,6 @@ function pacman() {
 
             /*  Check Pill Collision            */
             if ((field === "pill") || (field === "powerpill")) {
-                //console.log("Pill found at ("+gridX+"/"+gridY+"). Pacman at ("+this.posX+"/"+this.posY+")");
                 if (
                 ((this.dirX == 1) && (between(this.posX, game.toPixelPos(gridX) + this.radius - 5, game.toPixelPos(gridX + 1)))) || ((this.dirX == -1) && (between(this.posX, game.toPixelPos(gridX), game.toPixelPos(gridX) + 5))) || ((this.dirY == 1) && (between(this.posY, game.toPixelPos(gridY) + this.radius - 5, game.toPixelPos(gridY + 1)))) || ((this.dirY == -1) && (between(this.posY, game.toPixelPos(gridY), game.toPixelPos(gridY) + 5))) || (fieldAhead === "wall")) {
                     var s;
@@ -792,7 +753,7 @@ function pacman() {
                 }
             }
 
-            /*  Check Wall Collision            */
+            /* Check Wall Collision */
             if ((fieldAhead === "wall") || (fieldAhead === "door")) {
                 this.stuckX = this.dirX;
                 this.stuckY = this.dirY;
@@ -815,7 +776,6 @@ function pacman() {
                 // reset stuck events
                 this.stuckX = 0;
                 this.stuckY = 0;
-
 
                 // only allow direction changes inside the grid
                 if ((this.inGrid())) {
@@ -844,6 +804,7 @@ function pacman() {
             }
         }
     }
+
     this.setDirection = function (dir) {
         if (!this.frozen) {
             this.dirX = dir.dirX;
@@ -853,6 +814,7 @@ function pacman() {
             this.direction = dir;
         }
     }
+
     this.enableBeastMode = function () {
         this.beastMode = true;
         this.beastModeTimer = 240;
@@ -862,6 +824,7 @@ function pacman() {
         blinky.dazzle();
         clyde.dazzle();
     };
+
     this.disableBeastMode = function () {
         this.beastMode = false;
         //console.log("Beast Mode is over!");
@@ -870,8 +833,8 @@ function pacman() {
         blinky.undazzle();
         clyde.undazzle();
     };
-    this.move = function () {
 
+    this.move = function () {
         if (!this.frozen) {
             if (this.beastModeTimer > 0) {
                 this.beastModeTimer--;
@@ -891,10 +854,8 @@ function pacman() {
     }
 
     this.eat = function () {
-
         if (!this.frozen) {
             if (this.dirX == this.dirY == 0) {
-
                 this.angle1 -= this.mouth * 0.07;
                 this.angle2 += this.mouth * 0.07;
 
@@ -912,10 +873,12 @@ function pacman() {
             }
         }
     }
+
     this.stop = function () {
         this.dirX = 0;
         this.dirY = 0;
     }
+
     this.reset = function () {
         this.unfreeze();
         this.posX = 0;
@@ -926,6 +889,7 @@ function pacman() {
         this.stuckY = 0;
         //console.log("reset pacman");
     }
+
     this.dieAnimation = function () {
         this.angle1 += 0.05;
         this.angle2 -= 0.05;
@@ -933,11 +897,13 @@ function pacman() {
             this.dieFinal();
         }
     }
+
     this.die = function () {
         Sound.play("die");
         this.freeze();
         this.dieAnimation();
     }
+
     this.dieFinal = function () {
         this.reset();
         pinky.reset();
@@ -955,9 +921,11 @@ function pacman() {
         }
         game.drawHearts(this.lives);
     }
+
     this.getGridPosX = function () {
         return (this.posX - (this.posX % 30)) / 30;
     }
+
     this.getGridPosY = function () {
         return (this.posY - (this.posY % 30)) / 30;
     }
@@ -1101,7 +1069,7 @@ $(document).ready(function () {
     }, false);
 
 
-    // --------------- Controls
+    /* -------------------- CONTROLS -------------------------- */
 
 
     // Keyboard
@@ -1111,16 +1079,13 @@ $(document).ready(function () {
         if (!(game.gameOver == true)) game.pauseResume();
     });
 
-    // Hammerjs Touch Events
-    /*Hammer('#canvas-container').on("tap", function(event) {
-            if (!(game.gameOver == true))   game.pauseResume();
-        });*/
     Hammer('.container').on("swiperight", function (event) {
         if ($('#game-content').is(":visible")) {
             event.gesture.preventDefault();
             pacman.directionWatcher.set(right);
         }
     });
+
     Hammer('.container').on("swipeleft", function (event) {
         if ($('#game-content').is(":visible")) {
             event.gesture.preventDefault();
@@ -1186,18 +1151,8 @@ $(document).ready(function () {
         window.applicationCache.update();
     });
 
-    // checkAppCache();
-
     canvas = $("#myCanvas").get(0);
     context = canvas.getContext("2d");
-
-
-
-    /* --------------- GAME INITIALISATION ------------------------------------
-
-            TODO: put this into Game object and change code to accept different setups / levels
-
-        -------------------------------------------------------------------------- */
 
     game.init(0);
     logger.disableLogger();
@@ -1207,7 +1162,6 @@ $(document).ready(function () {
 
 function renderContent() {
     //context.save()
-
 
     // Refresh Score
     game.score.refresh(".score");
@@ -1295,8 +1249,6 @@ function animationLoop() {
         pacman.checkDirectionChange();
         pacman.checkCollisions(); // has to be the LAST method called on pacman
 
-
-
         blinky.move();
         inky.move();
         pinky.move();
@@ -1308,17 +1260,11 @@ function animationLoop() {
     // All dots collected?
     game.check();
 
-
     //requestAnimationFrame(animationLoop);
     setTimeout(animationLoop, game.refreshRate);
-
-
 }
 
-
-
 function doKeyDown(evt) {
-
     switch (evt.keyCode) {
         case 38:
             // UP Arrow Key pressed

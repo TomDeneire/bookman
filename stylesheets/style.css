@@ -29,7 +29,6 @@ html, body {
   font-size: 14px;
   line-height: 23px;
   text-align: center;
-  /*background: url('../img/bg-pattern-black.png') repeat;*/
 }
 
 body {
@@ -443,7 +442,6 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     background/*\**/: url(img/bg/black_40.png)\9;
   }
 
-
   h1 {
     font-size: 1.8em;
   }
@@ -484,6 +482,7 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
   .header > *, .content > *, .footer > * {
     margin: 5px 10px;
   }
+
   .footer {
     position: relative;
     height: 40px;
