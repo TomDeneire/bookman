@@ -6,40 +6,51 @@ An old classic, written in HTML5. Visit [Pacman HTML5](http://pacman.thisismicha
 
 Clone from GitHub and go into the directory.
 
-        $ git clone -b gh-pages https://github.com/caleorourke/pacman.git
-        $ cd pacman
-
+```
+$ git clone -b gh-pages https://github.com/caleorourke/pacman-html5.git
+$ cd pacman-html5
+```
 
 Install Bundler.
 
-        $ [sudo] gem install bundler
-
+```
+$ [sudo] gem install bundler
+```
 
 Install runtime dependencies.
 
-        $ [sudo] bundle install
-
+```
+$ [sudo] bundle install
+```
 
 ## Roll Your Own
 
 Make a fresh clone and go into the directory.
 
-        $ git clone https://github.com/username/mrpacman.git
-        $ cd mrpacman
+```
+$ git clone https://github.com/username/mrpacman.git
+$ cd mrpacman
+```
 
 Create a new `gh-pages` branch.
 
-        $ git checkout --orphan gh-pages
+```
+$ git checkout --orphan gh-pages
+```
 
 Copy the contents from `/pacman` to `/mrpacman`.
 
-        $ [sudo] cp -r ~/pacman/* ~/mrpacman
+```
+$ [sudo] cp -r ~/pacman/* ~/mrpacman
+```
 
 Push your site to GitHub.
 
-        $ git add .
-        $ git commit -a -m "first commit"
-        $ git push origin gh-pages
+```
+$ git add .
+$ git commit -a -m "first commit"
+$ git push origin gh-pages
+```
 
 ## License
 
