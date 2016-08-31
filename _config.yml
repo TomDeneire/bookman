@@ -1,6 +1,4 @@
-author:     platzh1rsch.ch
+author:     caleorourke
 permalink:  pretty
-exclude:   [".gitignore",
-            "Gemfile",
-            "README.md"
-            ]
+exclude:   [Gemfile",
+            "README.md"]
