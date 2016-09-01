@@ -1,7 +1,7 @@
 # Pacman
 An old classic written in HTML5. Play [Pacman](http://pacman.thisismichaelorourke.com) live.
 
-## Quick Install
+## Clone Pacman
 Clone from GitHub and go into the directory.
 
 ```
@@ -9,20 +9,8 @@ $ git clone -b gh-pages https://github.com/caleorourke/pacman.git
 $ cd pacman
 ```
 
-Install Bundler.
-
-```
-$ gem install bundler
-```
-
-Install runtime dependencies.
-
-```
-$ bundle install
-```
-
-## Roll Your Own
-Make a fresh clone and go into the directory.
+## Duplicate Pacman
+Make a fresh clone and go into the directory (example).
 
 ```
 $ git clone https://github.com/username/mrpacman.git
@@ -41,7 +29,7 @@ Copy the contents from `/pacman` to `/mrpacman`.
 $ cp -r ~/pacman/* ~/mrpacman
 ```
 
-Push your site to GitHub.
+Push your code to GitHub.
 
 ```
 $ git add .
