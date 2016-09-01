@@ -1,4 +1,4 @@
-## Pacman
+# Pacman
 An old classic written in HTML5. Play [Pacman](http://pacman.thisismichaelorourke.com) live.
 
 ## Quick Install
@@ -12,13 +12,13 @@ $ cd pacman
 Install Bundler.
 
 ```
-$ [sudo] gem install bundler
+$ gem install bundler
 ```
 
 Install runtime dependencies.
 
 ```
-$ [sudo] bundle install
+$ bundle install
 ```
 
 ## Roll Your Own
@@ -38,7 +38,7 @@ $ git checkout --orphan gh-pages
 Copy the contents from `/pacman` to `/mrpacman`.
 
 ```
-$ [sudo] cp -r ~/pacman/* ~/mrpacman
+$ cp -r ~/pacman/* ~/mrpacman
 ```
 
 Push your site to GitHub.

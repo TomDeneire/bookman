@@ -1,4 +1,3 @@
-author:     caleorourke
 permalink:  pretty
 exclude:   [Gemfile",
             "README.md"]
