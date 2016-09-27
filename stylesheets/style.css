@@ -412,7 +412,7 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
    Viewports
    ========================= */
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1029px) {
   .main {
     background: rgba(0,0,0,.4);
     background/*\**/: url(img/bg/black_40.png)\9;
@@ -428,7 +428,7 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 640px) {
   html, body {
     height: auto;
   }
@@ -522,7 +522,7 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 300px) {
   ul.nav li {
     padding: 0 .3em;
     margin: 0;
