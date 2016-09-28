@@ -2,8 +2,10 @@ a img {
   border: none;
 }
 
-h1, h2, h3 {
-  font-family: 'Press Start 2P', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Press Start 2P", cursive;
   text-transform: uppercase;
 }
 
@@ -19,13 +21,14 @@ h3 {
   font-size: 1em;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   min-height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Quando', serif;
+  font-family: "Quando", serif;
   font-size: 14px;
   line-height: 23px;
   text-align: center;
@@ -35,6 +38,16 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+::selection {
+  background: rgba(24, 106, 12,.7); /* Safari */
+}
+
+::-moz-selection {
+  background: rgba(24, 106, 12,.7); /* Firefox */
+}
+
+/* ----- Layout ---------------------------------------- */
 
 div.layout {
   padding: 0;
@@ -66,7 +79,7 @@ aside > * {
   float: left;
   width: 320px;
   height: 100%;
-  font-family: 'Acme', sans-serif;
+  font-family: "Acme", sans-serif;
   color: rgba(0,0,0,.55);
   text-align: left;
   text-transform: uppercase;
@@ -76,17 +89,27 @@ aside > * {
           box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
 }
 
-::selection {
-  background: rgba(24, 106, 12,.7); /* Safari */
+.header {
+  display: none;
 }
 
-::-moz-selection {
-  background: rgba(24, 106, 12,.7); /* Firefox */
+.header,
+.content,
+.footer {
+  width: 700px;
+  max-width: 700px;
+  padding: 3.5em 5em;
+  margin: 30px;
+  color: rgba(255,255,255,.9);
+  color/*\**/: rgb(250,250,250)\9;
+  background: rgba(0,0,0,.9);
+  background/*\**/: url(../img/bg/black_40.png)\9;
+  -webkit-box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
+     -moz-box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
+          box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
 }
 
-/* =========================
-   Sidebar Nav
-   ========================= */
+/* ----- Nav ---------------------------------------- */
 
 ul.nav {
   padding: 0;
@@ -132,11 +155,18 @@ ul.nav li.active {
   *background: url(img/bg/white_20.png);
 }
 
-ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.nav a:focus {
+ul.nav a,
+ul.nav a:link,
+ul.nav a:active,
+ul.nav a:visited,
+ul.nav a:hover,
+ul.nav a:focus {
   font-size: 1.5em;
   color: rgb(31,52,4);
   text-decoration: none;
 }
+
+/* ----- Main ---------------------------------------- */
 
 .main {
   position: static;
@@ -145,30 +175,16 @@ ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.n
   text-align: left;
 }
 
-.header {
-  display: none;
-}
-
-.header, .content, .footer {
-  width: 700px;
-  max-width: 700px;
-  padding: 3.5em 5em;
-  margin: 30px;
-  color: rgba(255,255,255,.9);
-  color/*\**/: rgb(250,250,250)\9;
-  background: rgba(0,0,0,.9);
-  background/*\**/: url(../img/bg/black_40.png)\9;
-  -webkit-box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
-     -moz-box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
-          box-shadow: 2px 2px 5px rgba(50, 50, 50, .75);
-}
-
-.main a, .main  a:link, .main  a:active, .main  a:visited {
+.main a,
+.main a:link,
+.main a:active,
+.main a:visited {
   color: #367e20;
   text-decoration: none;
 }
 
-.main  a:hover, .main  a:focus {
+.main a:hover,
+.main a:focus {
   color: #367e20;
   text-decoration: underline;
 }
@@ -184,7 +200,7 @@ ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.n
 }
 
 .social {
-  font-family: 'Socialico';
+  font-family: "Socialico";
   font-size: 40px;
   line-height: 55px;
   text-align: center;
@@ -192,7 +208,12 @@ ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.n
   vertical-align: top;
 }
 
-.social a, .social  a:link, .social a:active, .social a:visited, .social a:hover, .social a:focus {
+.social a,
+.social a:link,
+.social a:active,
+.social a:visited,
+.social a:hover,
+.social a:focus {
   color: rgba(0,0,0,.55);
   text-decoration: none;
   transition-duration: .3s;
@@ -203,11 +224,10 @@ ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.n
   opacity: .8;
 }
 
-/* =========================
-   Boxes
-   ========================= */
+/* ----- Boxes ---------------------------------------- */
 
-.box2, .box3 {
+.box2,
+.box3 {
   display: inline-block;
   margin-right: 5px !important;
   vertical-align: top;
@@ -223,7 +243,8 @@ ul.nav a, ul.nav a:link, ul.nav a:active, ul.nav a:visited, ul.nav a:hover, ul.n
   max-width: 205px;
 }
 
-div + .box2, div + box3 {
+div + .box2,
+div + box3 {
   margin: 5px !important;
 }
 
@@ -330,9 +351,7 @@ span.portfolio-label {
   }
 }
 
-/* =========================
-   Tables
-   ========================= */
+/* ----- Tables ---------------------------------------- */
 
 table {
   width: 100%;
@@ -359,16 +378,17 @@ tbody tr:nth-child(even) {
   background-color: #efefef;
 }
 
-/* =========================
-   Forms
-   ========================= */
+/* ----- Forms ---------------------------------------- */
 
-input, select, textarea {
+input,
+select,
+textarea {
   padding: .4em;
   margin: .4em;
 }
 
-input[type=button], input[type=submit] {
+input[type=button],
+input[type=submit] {
   color: #fff;
   text-transform: uppercase;
   background: #326a21;
@@ -377,22 +397,30 @@ input[type=button], input[type=submit] {
   border-radius: 15px;
 }
 
-input[type=text], input[type=password], textarea {
+input[type=text],
+input[type=password],
+textarea {
   box-shadow: 0 1px 2px rgba(0, 0, 0, .3) inset;
 }
 
-input[type=button]:hover, input[type=button]:focus, input[type=submit]:hover, input[type=submit]:focus {
+input[type=button]:hover,
+input[type=button]:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
   cursor: pointer;
   background: #367e20;
 }
 
-input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, input[type=password]:focus, textarea:hover, textarea:focus {
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+textarea:hover,
+textarea:focus {
   border: 1px solid #009600;
 }
 
-/* =========================
-   Swipe.js
-   ========================= */
+/* ----- Swipe.js ---------------------------------------- */
 
 .swipe {
   margin: 1em 0;
@@ -408,9 +436,7 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
   border-radius: 8px;
 }
 
-/* =========================
-   Viewports
-   ========================= */
+/* ----- Viewports ---------------------------------------- */
 
 @media screen and (max-width: 1029px) {
   .main {
@@ -419,7 +445,9 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     background-attachment: fixed;
   }
 
-  .header, .content, .footer {
+  .header,
+  .content,
+  .footer {
     width: auto;
     max-width: none;
     height: 100%;
@@ -429,7 +457,8 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
 }
 
 @media screen and (max-width: 640px) {
-  html, body {
+  html,
+  body {
     height: auto;
   }
 
@@ -466,7 +495,9 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     height: auto;
   }
 
-  .header, .content, .footer {
+  .header,
+  .content,
+  .footer {
     max-width: 650px;
     padding: 5px 0;
     margin: 0;
@@ -479,7 +510,9 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     overflow-x: hidden;
   }
 
-  .header > *, .content > *, .footer > * {
+  .header > *,
+  .content > *,
+  .footer > * {
     margin: 5px 10px;
   }
 
@@ -499,14 +532,16 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     background: rgba(0,0,0,.4);
   }
 
-  ul.nav li, ul.nav.sub li {
+  ul.nav li,
+  ul.nav.sub li {
     display: inline-block;
     padding: 0 .5em;
     margin: 0;
     background: none;
   }
 
-  ul.nav li:hover, ul.nav.sub li:hover {
+  ul.nav li:hover,
+  ul.nav.sub li:hover {
     padding: 0 .5em;
   }
 }
@@ -516,7 +551,8 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     display: block;
   }
 
-  .box2, .box3 {
+  .box2,
+  .box3 {
     display: block;
     width: 100%;
   }
@@ -528,7 +564,8 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
     margin: 0;
   }
 
-  ul.nav li:hover, ul.nav.sub li:hover {
+  ul.nav li:hover,
+  ul.nav.sub li:hover {
     padding: 0 .3em;
   }
 }
