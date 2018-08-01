@@ -1,5 +1,5 @@
 # Pacman
-An old classic written in HTML5. Play [Pacman](http://pacman.thisismichaelorourke.com) live.
+An old classic written in HTML5.
 
 ## Clone Pacman
 Clone from GitHub and go into the directory.
