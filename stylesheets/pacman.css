@@ -253,13 +253,13 @@ audio {
 .description {
   display: none;
 }
-
+/*
 @media screen and (max-width: 1029px) {
   html,
   body {
     background: rgba(0,0,0,0);
   }
-}
+}*/
 
 @media screen and (max-width: 640px) {
   .game {
